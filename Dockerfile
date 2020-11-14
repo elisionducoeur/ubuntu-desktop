@@ -31,6 +31,9 @@ RUN apt-get update && \
       x11-xserver-utils \
       xfonts-base \
       xterm && \
+    groupmod -g 1000 users && \
+    useradd -u 911 -U -d /config -s /bin/false abc && \
+    usermod -G users abc && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 
